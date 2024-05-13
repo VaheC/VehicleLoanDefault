@@ -20,7 +20,7 @@ class TargetValueMapping:
 
 
 
-class USvisaModel:
+class VehicleLoanModel:
     def __init__(self, preprocessing_object: Pipeline, trained_model_object: object):
         """
         :param preprocessing_object: Input Object of preprocesser
