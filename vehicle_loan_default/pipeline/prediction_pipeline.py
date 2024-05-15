@@ -11,7 +11,7 @@ from vehicle_loan_default.utils.main_utils import read_yaml_file
 from pandas import DataFrame
 
 
-class USvisaData:
+class VehicleLoanData:
     def __init__(self,
                 continent,
                 education_of_employee,
@@ -46,7 +46,7 @@ class USvisaData:
 
     def get_usvisa_input_data_frame(self)-> DataFrame:
         """
-        This function returns a DataFrame from USvisaData class input
+        This function returns a DataFrame from VehicleLoanData class input
         """
         try:
             
@@ -59,9 +59,9 @@ class USvisaData:
 
     def get_usvisa_data_as_dict(self):
         """
-        This function returns a dictionary from USvisaData class input 
+        This function returns a dictionary from VehicleLoanData class input 
         """
-        logging.info("Entered get_usvisa_data_as_dict method as USvisaData class")
+        logging.info("Entered get_usvisa_data_as_dict method as VehicleLoanData class")
 
         try:
             input_data = {
@@ -79,14 +79,14 @@ class USvisaData:
 
             logging.info("Created usvisa data dict")
 
-            logging.info("Exited get_usvisa_data_as_dict method as USvisaData class")
+            logging.info("Exited get_usvisa_data_as_dict method as VehicleLoanData class")
 
             return input_data
 
         except Exception as e:
             raise VehicleLoanException(e, sys) from e
 
-class USvisaClassifier:
+class VehicleLoanClassifier:
     def __init__(self,prediction_pipeline_config: VehicleLoanPredictorConfig = VehicleLoanPredictorConfig(),) -> None:
         """
         :param prediction_pipeline_config: Configuration for prediction the value
@@ -99,11 +99,11 @@ class USvisaClassifier:
 
     def predict(self, dataframe) -> str:
         """
-        This is the method of USvisaClassifier
+        This is the method of VehicleLoanClassifier
         Returns: Prediction in string format
         """
         try:
-            logging.info("Entered predict method of USvisaClassifier class")
+            logging.info("Entered predict method of VehicleLoanClassifier class")
             model = VehicleLoanEstimator(
                 bucket_name=self.prediction_pipeline_config.model_bucket_name,
                 model_path=self.prediction_pipeline_config.model_file_path,
