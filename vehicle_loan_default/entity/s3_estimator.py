@@ -5,7 +5,7 @@ import sys
 from pandas import DataFrame
 
 
-class USvisaEstimator:
+class VehicleLoanEstimator:
     """
     This class is used to save and retrieve vehicle_loan_defaults model in s3 bucket and to do prediction
     """
