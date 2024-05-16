@@ -7,7 +7,7 @@ from vehicle_loan_default.logger import logging
 import sys
 import pandas as pd
 from typing import Optional
-from vehicle_loan_default.entity.s3_estimator import USvisaEstimator
+from vehicle_loan_default.entity.s3_estimator import VehicleLoanEstimator
 from dataclasses import dataclass
 from vehicle_loan_default.entity.estimator import VehicleLoanModel
 from vehicle_loan_default.entity.estimator import TargetValueMapping
@@ -31,7 +31,7 @@ class ModelEvaluation:
         except Exception as e:
             raise VehicleLoanException(e, sys) from e
 
-    def get_best_model(self) -> Optional[USvisaEstimator]:
+    def get_best_model(self) -> Optional[VehicleLoanEstimator]:
         """
         Method Name :   get_best_model
         Description :   This function is used to get model in production
@@ -42,7 +42,7 @@ class ModelEvaluation:
         try:
             bucket_name = self.model_eval_config.bucket_name
             model_path=self.model_eval_config.s3_model_key_path
-            usvisa_estimator = USvisaEstimator(bucket_name=bucket_name,
+            usvisa_estimator = VehicleLoanEstimator(bucket_name=bucket_name,
                                                model_path=model_path)
 
             if usvisa_estimator.is_model_present(model_path=model_path):
